@@ -43,7 +43,7 @@
         <div class="block-content">
 
           <div class="float-end my-3">
-            <a href="{{ Route('noticias.create') }} " class="btn btn-info ">Nueva Noticia</a>
+            <a href="{{ Route('noticias.create') }} " class="btn btn-info "><i class="fa fa-plus"></i> Nueva Noticia</a>
           </div>
 
           <table class="table table-bordered table-striped table-vcenter">

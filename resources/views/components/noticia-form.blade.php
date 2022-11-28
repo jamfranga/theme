@@ -45,6 +45,6 @@
     <input type="text" class="form-control" id="id_categoria" name="id_categoria" placeholder="Categoría" value="{{ old('id_categoria',$noticia->id_categoria)}}">
 </div>
 <div class="mb-4">
-    <button type="submit" class="btn btn-success float-right">Guardar</button>
-    <a href="{{ route('noticias.index') }}" type="submit" class="btn btn-secondary float-right">Regresar</a>
+    <button type="submit" class="btn btn-success float-right"><i class="fa fa-save"></i> Guardar</button>
+    <a href="{{ route('noticias.index') }}" type="submit" class="btn btn-secondary float-right"><i class="fa fa-undo"></i> Regresar</a>
 </div>
