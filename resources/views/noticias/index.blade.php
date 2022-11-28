@@ -74,12 +74,12 @@
                 </td>
                 <td class="text-center">
                   <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-alt-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Edit">
+                    <a href="{{ Route('noticias.edit',$noticia) }}"{{ $noticia->titulo }}" class="btn btn-sm btn-alt-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Edit">
                       <i class="fa fa-fw fa-pencil-alt"></i>
-                    </button>
-                    <button type="button" class="btn btn-sm btn-alt-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Delete">
+                    </a>
+                    <a type="button" class="btn btn-sm btn-alt-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Delete">
                       <i class="fa fa-fw fa-times"></i>
-                    </button>
+                    </a>
                   </div>
                 </td>
               </tr>

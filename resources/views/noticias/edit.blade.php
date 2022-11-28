@@ -39,6 +39,10 @@
     <div class="block block-rounded">
         <div class="block-header block-header-default">
           <h3 class="block-title">Crear nueva noticia</h3>
+          <div class="block-options">
+            <a href="{{ route('noticias.index') }}" type="submit" class="btn btn-secondary float-right"><i class="fa fa-undo"></i> Regresar</a>
+
+          </div>
         </div>
         <div class="block-content">
             <form action="{{ Route('noticias.update',$noticia) }}" method="POST">
