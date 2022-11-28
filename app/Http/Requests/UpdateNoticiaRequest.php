@@ -13,7 +13,7 @@ class UpdateNoticiaRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -30,7 +30,7 @@ class UpdateNoticiaRequest extends FormRequest
             'texto' => 'required | min:50',
             'id_usuario' => 'required | numeric | min:0',
             'id_categoria' => 'required | numeric | min:0',
-            'fecha_noticia' => 'required | date_format:Y-m-d\TH:i'
+            'fecha_noticia' => 'required | date_format:d-m-Y'
         ];
     }
 }

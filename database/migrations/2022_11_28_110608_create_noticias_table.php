@@ -19,9 +19,10 @@ return new class extends Migration
             $table->text('resumen');
             $table->text('slug');
             $table->text('texto');
-            $table->timestamp('fecha_noticia');
+            $table->timestamp('fecha_noticia')->Carbon;
             $table->integer('id_usuario');
             $table->integer('id_categoria');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

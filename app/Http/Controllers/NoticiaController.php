@@ -43,7 +43,6 @@ class NoticiaController extends Controller
     public function store(StoreNoticiaRequest $request)
     {
         $noticia = Noticia::create($request->all());
-
         return redirect()->route('noticias.index');
     }
 
@@ -66,7 +65,8 @@ class NoticiaController extends Controller
      */
     public function edit(Noticia $noticia)
     {
-
+        
+        return view ('noticias.edit', compact('noticia'));
     }
 
     /**
@@ -78,7 +78,13 @@ class NoticiaController extends Controller
      */
     public function update(UpdateNoticiaRequest $request, Noticia $noticia)
     {
-        //
+        try {
+            $noticia->update($request->all());
+            return redirect()->route('noticias.edit',$noticia)->with('message','La noticia ha sido guardada correctamente');
+        }
+        catch  (\Throwable $e) {
+            return redirect()->route('noticias.edit',$noticia)->with('message','Hubo un error a la hora de guardar');
+        }
     }
 
     /**

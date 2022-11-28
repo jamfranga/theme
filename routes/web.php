@@ -19,6 +19,7 @@ Route::get('noticias/create',  [NoticiaController::class,'create'])->name('notic
 Route::post('noticias',  [NoticiaController::class,'store'])->name('noticias.store');
 Route::get('noticias/{noticia}',  [NoticiaController::class,'show'])->name('noticias.show');
 Route::get('noticias/{noticia}/edit',  [NoticiaController::class,'edit'])->name('noticias.edit');
+Route::put('noticias/{noticia}/actualizar',  [NoticiaController::class,'update'])->name('noticias.update');
 Route::delete('noticias/{noticia}',  [NoticiaController::class,'destroy'])->name('noticias.destroy');
 
 
@@ -31,3 +32,7 @@ Route::match(['get', 'post'], '/dashboard', function(){
 Route::view('/pages/slick', 'pages.slick');
 Route::view('/pages/datatables', 'pages.datatables');
 Route::view('/pages/blank', 'pages.blank');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
