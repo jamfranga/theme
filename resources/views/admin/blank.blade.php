@@ -1,4 +1,4 @@
-@extends('layouts.backend')
+@extends('admin.layouts.backend')
 
 @section('content')
   <!-- Hero -->
@@ -38,7 +38,6 @@
         </h3>
       </div>
       <div class="block-content">
-        @extends('layouts.backend')
 
         @section('content')
           <!-- Hero -->

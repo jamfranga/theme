@@ -1,4 +1,4 @@
-@extends('layouts.backend')
+@extends('admin.layouts.backend')
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('js/plugins/simplemde/simplemde.min.css')}}">
@@ -41,12 +41,12 @@
         <div class="block-header block-header-default">
           <h3 class="block-title">Crear nueva noticia</h3>
           <div class="block-options">
-            <a href="{{ route('noticias.index') }}" type="submit" class="btn btn-secondary float-right"><i class="fa fa-undo"></i> Regresar</a>
+            <a href="{{ route('admin.noticias.index') }}" type="submit" class="btn btn-secondary float-right"><i class="fa fa-undo"></i> Regresar</a>
           </div>
         </div>
         <div class="block-content">
-            <form action="{{ Route('noticias.store') }}" method="POST">
-              <x-Noticia-form/>               
+            <form action="{{ Route('admin.noticias.store') }}" method="POST">
+              <x-Noticia-form/>
             </form>
             @if ($errors->any())
             <div class="alert alert-danger">

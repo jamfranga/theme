@@ -14,4 +14,14 @@ class Noticia extends Model
     protected $fillable = ['titulo', 'resumen','texto','slug','fecha_noticia','id_usuario','id_categoria'];
 
     protected $dates = ['fecha_noticia'];
+
+    //Relación uno a muchos (inversa)
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
+
+    //Relación uno a muchos (inversa)
+    public function noticia_categoria(){
+        return $this->belongsTo('App\Models\NoticiaCategoria');
+    }
 }

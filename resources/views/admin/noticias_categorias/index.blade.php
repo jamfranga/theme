@@ -1,4 +1,4 @@
-@extends('layouts.backend')
+@extends('admin.layouts.backend')
 
 @section('content')
   <!-- Hero -->
@@ -33,7 +33,7 @@
     <!-- Your Block -->
     <div class="block block-rounded">
         <div class="block-header block-header-default">
-          <h3 class="block-title">Listado de Noticias</h3>
+          <h3 class="block-title">Listado de Categorías</h3>
           <div class="block-options">
             <button type="button" class="btn-block-option">
               <i class="si si-settings"></i>
@@ -43,38 +43,31 @@
         <div class="block-content">
 
           <div class="float-end my-3">
-            <a href="{{ Route('noticias.create') }} " class="btn btn-info "><i class="fa fa-plus"></i> Nueva Noticia</a>
+            <a href="{{ Route('admin.noticia_categorias.create') }} " class="btn btn-info "><i class="fa fa-plus"></i> Nueva Noticia</a>
           </div>
 
           <table class="table table-bordered table-striped table-vcenter">
             <thead>
               <tr>
-                <th class="text-center" style="width: 100px;">
-                  <i class="far fa-user"></i>
-                </th>
+
                 <th>Título</th>
-                <th class="d-none d-md-table-cell" style="width: 30%;">Resumen</th>
-                <th class="d-none d-sm-table-cell" style="width: 15%;">Categoría</th>
+                <th class="d-none d-md-table-cell" >Resumen</th>
                 <th class="text-center" style="width: 100px;">Actions</th>
               </tr>
             </thead>
             <tbody>
 
-             @foreach ($noticias as $noticia)
+             @foreach ($categorias as $categoria)
                 <tr>
-                <td class="text-center">
-                  <img class="img-avatar img-avatar48" src="assets/media/avatars/avatar3.jpg" alt="">
-                </td>
+
                 <td class="fw-semibold fs-sm">
-                  <a href="{{ Route('noticias.edit',$noticia) }}">{{ $noticia->titulo }}</a>
+                  <a href="{{ Route('admin.noticia_categorias.edit',$categoria) }}">{{ $categoria->categoria }}</a>
                 </td>
-                <td class="d-none d-md-table-cell fs-sm">{{ $noticia->resumen }}</td>
-                <td class="d-none d-sm-table-cell">
-                  <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-success-light text-success">{{ $noticia->id_categoria }}</span>
-                </td>
+                <td class="d-none d-md-table-cell fs-sm">{{ $categoria->descripcion }}</td>
+
                 <td class="text-center">
                   <div class="btn-group">
-                    <a href="{{ Route('noticias.edit',$noticia) }}"{{ $noticia->titulo }}" class="btn btn-sm btn-alt-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Edit">
+                    <a href="{{ Route('admin.noticia_categorias.edit',$categoria) }}" class="btn btn-sm btn-alt-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Edit">
                       <i class="fa fa-fw fa-pencil-alt"></i>
                     </a>
                     <a type="button" class="btn btn-sm btn-alt-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Delete">

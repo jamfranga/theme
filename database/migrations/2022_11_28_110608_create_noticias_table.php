@@ -20,8 +20,13 @@ return new class extends Migration
             $table->text('slug');
             $table->text('texto');
             $table->timestamp('fecha_noticia')->Carbon;
-            $table->integer('id_usuario');
-            $table->integer('id_categoria');
+
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
+
+            $table->unsignedBigInteger('noticia_categoria_id')->nullable();
+            $table->foreign('noticia_categoria_id')->references('id')->on('noticia_categorias')->onDelete('set null');
+
             $table->softDeletes();
             $table->timestamps();
         });

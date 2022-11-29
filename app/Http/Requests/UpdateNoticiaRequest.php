@@ -28,8 +28,8 @@ class UpdateNoticiaRequest extends FormRequest
             'titulo' => 'required | max:50',
             'resumen' => 'required | min:50',
             'texto' => 'required | min:50',
-            'id_usuario' => 'required | numeric | min:0',
-            'id_categoria' => 'required | numeric | min:0',
+            'user_id' => 'required | numeric | min:0',
+            'noticia_categoria_id' => 'required | numeric | min:0',
             'fecha_noticia' => 'required | date_format:d-m-Y'
         ];
     }

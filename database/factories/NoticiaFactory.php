@@ -25,8 +25,8 @@ class NoticiaFactory extends Factory
             'resumen' => $this->faker->paragraph(),
             'texto' => $this->faker->paragraph(),
             'fecha_noticia' => $this->faker->dateTime(),
-            'id_categoria' => $this->faker->randomElement([1,2,3]),
-            'id_usuario' => $this->faker->randomElement([1,2,3])
+            'noticia_categoria_id' => $this->faker->randomElement([1,2,3]),
+            'user_id' => $this->faker->randomElement([1,2])
         ];
     }
 }

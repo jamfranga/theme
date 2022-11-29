@@ -20,7 +20,7 @@ class NoticiaController extends Controller
         //
         $noticias=Noticia::all();
 
-        return view('noticias.index',compact('noticias'));
+        return view('admin.noticias.index',compact('noticias'));
     }
 
     /**
@@ -31,7 +31,7 @@ class NoticiaController extends Controller
     public function create()
     {
         //
-        return view ('noticias.create');
+        return view ('admin.noticias.create');
     }
 
     /**
@@ -42,8 +42,13 @@ class NoticiaController extends Controller
      */
     public function store(StoreNoticiaRequest $request)
     {
-        $noticia = Noticia::create($request->all());
-        return redirect()->route('noticias.index');
+        try {
+            $noticia = Noticia::create($request->all());
+            return redirect()->route('admin.noticias.edit',$noticia)->with('message','La noticia ha sido guardada correctamente');
+            }
+        catch  (\Throwable $e) {
+            return redirect()->route('admin.noticias.create',$noticia)->with('error','Hubo un error a la hora de guardar');
+        }
     }
 
     /**
@@ -65,8 +70,8 @@ class NoticiaController extends Controller
      */
     public function edit(Noticia $noticia)
     {
-        
-        return view ('noticias.edit', compact('noticia'));
+
+        return view ('admin.noticias.edit', compact('noticia'));
     }
 
     /**
@@ -80,10 +85,10 @@ class NoticiaController extends Controller
     {
         try {
             $noticia->update($request->all());
-            return redirect()->route('noticias.edit',$noticia)->with('message','La noticia ha sido guardada correctamente');
+            return redirect()->route('admin.noticias.edit',$noticia)->with('message','La noticia ha sido guardada correctamente');
         }
         catch  (\Throwable $e) {
-            return redirect()->route('noticias.edit',$noticia)->with('message','Hubo un error a la hora de guardar');
+            return redirect()->route('admin.noticias.edit',$noticia)->with('error','Hubo un error a la hora de guardar');
         }
     }
 

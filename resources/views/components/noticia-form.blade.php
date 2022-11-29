@@ -37,14 +37,18 @@
 </div>
 <div class="mb-4">
     <label class="form-label" for="example-text-input">Autor</label>
-    <input type="text" class="form-control" id="id_usuario" name="id_usuario" placeholder="autor" value="{{ old('id_usuario',$noticia->id_usuario)}}">
+
+    @if(!is_null($noticia->user))
+    {{ $noticia->user->name }}
+    @endif
+    <input type="text" class="form-control" id="user_id" name="user_id" placeholder="autor" value="{{ old('user_id',$noticia->user_id)}}">
 </div>
 
 <div class="mb-4">
     <label class="form-label" for="example-text-input">Categoría</label>
-    <input type="text" class="form-control" id="id_categoria" name="id_categoria" placeholder="Categoría" value="{{ old('id_categoria',$noticia->id_categoria)}}">
+    <input type="text" class="form-control" id="noticia_categoria_id" name="noticia_categoria_id" placeholder="Categoría" value="{{ old('noticia_categoria_id',$noticia->noticia_categoria_id)}}">
 </div>
 <div class="mb-4">
     <button type="submit" class="btn btn-success float-right"><i class="fa fa-save"></i> Guardar</button>
-    <a href="{{ route('noticias.index') }}" type="submit" class="btn btn-secondary float-right"><i class="fa fa-undo"></i> Regresar</a>
+    <a href="{{ route('admin.noticias.index') }}" type="submit" class="btn btn-secondary float-right"><i class="fa fa-undo"></i> Regresar</a>
 </div>

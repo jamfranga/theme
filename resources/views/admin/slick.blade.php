@@ -1,4 +1,4 @@
-@extends('layouts.backend')
+@extends('admin.layouts.backend')
 
 @section('css')
   <link rel="stylesheet" href="{{ asset('js/plugins/slick-carousel/slick.css') }}">

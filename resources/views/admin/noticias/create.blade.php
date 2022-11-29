@@ -1,8 +1,9 @@
-@extends('layouts.backend')
+@extends('admin.layouts.backend')
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('js/plugins/simplemde/simplemde.min.css')}}">
 <link rel="stylesheet" href="{{ asset('js/plugins/flatpickr/flatpickr.min.css')}}">
+
 @endsection
 
 @section('content')
@@ -40,14 +41,12 @@
         <div class="block-header block-header-default">
           <h3 class="block-title">Crear nueva noticia</h3>
           <div class="block-options">
-            <a href="{{ route('noticias.index') }}" type="submit" class="btn btn-secondary float-right"><i class="fa fa-undo"></i> Regresar</a>
-
+            <a href="{{ route('admin.noticias.index') }}" type="submit" class="btn btn-secondary float-right"><i class="fa fa-undo"></i> Regresar</a>
           </div>
         </div>
         <div class="block-content">
-            <form action="{{ Route('noticias.update',$noticia) }}" method="POST">
-                @method('put')
-                 <x-Noticia-form :noticia="$noticia"/>               
+            <form action="{{ Route('admin.noticias.store') }}" method="POST">
+              <x-Noticia-form/>
             </form>
             @if ($errors->any())
             <div class="alert alert-danger">
@@ -80,39 +79,5 @@
 
     <!-- Page JS Helpers (CKEditor + SimpleMDE plugins) -->
     <script>One.helpersOnLoad(['js-flatpickr', 'js-simplemde']);</script>
-
-    <!-- Page JS Plugins -->
-    <script src="{{ asset('js/plugins/bootstrap-notify/bootstrap-notify.min.js')}}"></script>
-
-    <script>
-        @if(Session::has('message'))
-         One.helpers('jq-notify', {type: 'success', icon: 'fa fa-check me-1', message: '{{ session('message') }}'});
-        @endif
-      
-        @if(Session::has('error'))
-            One.helpers('jq-notify', {type: 'warning', icon: 'fa fa-check me-1', message: '{{ session('message') }}'});
-        @endif
-      
-        @if(Session::has('info'))
-        toastr.options =
-        {
-            "closeButton" : true,
-            "progressBar" : true
-        }
-                toastr.info("{{ session('info') }}");
-        @endif
-      
-        @if(Session::has('warning'))
-        toastr.options =
-        {
-            "closeButton" : true,
-            "progressBar" : true
-        }
-                toastr.warning("{{ session('warning') }}");
-        @endif
-
-
-      </script>
-
 
 @endsection
